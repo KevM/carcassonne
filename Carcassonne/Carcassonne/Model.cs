@@ -1,39 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 
-namespace Carc.Tests
+namespace Carcassonne
 {
-    public class Terrain
-    {
-        public string Kind { get; set; }
-
-        private Terrain(string kind)
-        {
-            Kind = kind;
-        }
-
-        public static Terrain City = new Terrain("city");
-        public static Terrain Grass = new Terrain("city");
-        public static Terrain Road = new Terrain("city");
-        public static Terrain River = new Terrain("city");
-    }
-
-    public class Feature
-    {
-        public string Kind { get; set; }
-
-        private Feature(string kind)
-        {
-            Kind = kind;
-        }
-
-        public static Feature Cloister = new Feature("cloister");
-        public static Feature Inn = new Feature("inn");
-        public static Feature Cathedral = new Feature("cathedral");
-    }
-
     public class Path
     {
         private readonly List<Side> _sides = new List<Side>();
@@ -81,24 +51,6 @@ namespace Carc.Tests
         }
     }
 
-    public class SideFactory
-    {
-        public Side Football()
-        {
-            var side = new Side(Terrain.City);
-            var football = new Path(Terrain.City, side);
-            return side;
-        }
-        public Side Field()
-        {
-            return new Side(Terrain.Grass);
-        }
-        public Side Road()
-        {
-            return new Side(Terrain.Road);
-        }
-    }
-
     public class Tile
     {
         public Side[] Sides { get; set; }
@@ -114,15 +66,6 @@ namespace Carc.Tests
 
             Sides = sides;
             Features = new Feature[0];
-        }
-    }
-
-    public class Graph
-    {
-        public Tile StartingStartingTile { get; set; }
-        public Graph(Tile startingTile)
-        {
-            StartingStartingTile = startingTile;
         }
     }
 }
