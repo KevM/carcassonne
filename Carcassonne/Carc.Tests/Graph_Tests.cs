@@ -1,5 +1,7 @@
 ﻿namespace Carc.Tests
 {
+    using Carcassonne;
+
     public class Graph_Tests 
     {
         public void should_start_somewhere()
